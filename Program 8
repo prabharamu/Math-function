@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+
+    int num, first, second, swapped;
+
+    // Read the number
+
+    scanf("%d", &num);
+
+    // Handle single-digit numbers (can't swap)
+
+    if (num < 10) {
+
+        // No output for single-digit input as per sample
+
+        return 0;
+
+    }
+
+    // Extract the first two digits
+
+    while (num >= 100) {
+
+        num /= 10;
+
+    }
+
+    first = num / 10;
+
+    second = num % 10;
+
+    // Swap digits
+
+    swapped = second * 10 + first;
+
+    // Print result
+
+    printf("%d\n", swapped);
+
+    return 0;
+
+}
