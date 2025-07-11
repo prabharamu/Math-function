@@ -1,0 +1,85 @@
+include <stdio.h>
+
+int main() {
+
+    int tickets;
+
+    char refreshment, coupon, ticketType;
+
+    float ticketCost = 0, total = 0;
+
+    // Read inputs
+
+    scanf("%d", &tickets);
+
+    scanf(" %c", &refreshment); // space before %c handles newline
+
+    scanf(" %c", &coupon);
+
+    scanf(" %c", &ticketType);
+
+    // Validate ticket count
+
+    if (tickets < 5 || tickets > 40) {
+
+        printf("Minimum of 5 and Maximum of 40 Tickets\n");
+
+        return 0;
+
+    }
+
+    // Validate ticket type
+
+    if (ticketType != 'k' && ticketType != 'q') {
+
+        printf("Invalid Input\n");
+
+        return 0;
+
+    }
+
+    // Set base price
+
+    if (ticketType == 'k')
+
+        ticketCost = 75;
+
+    else if (ticketType == 'q')
+
+        ticketCost = 150;
+
+    // Calculate total cost
+
+    total = tickets * ticketCost;
+
+    // Apply bulk booking discount
+
+    if (tickets > 20) {
+
+        total *= 0.9; // 10% discount
+
+    }
+
+    // Apply coupon discount
+
+    if (coupon == 'y' || coupon == 'Y') {
+
+        total *= 0.98; // 2% discount
+
+    }
+
+    // Add refreshment cost
+
+    if (refreshment == 'y' || refreshment == 'Y') {
+
+        total += tickets * 50;
+
+    }
+
+    // Print total with 2 decimal places
+
+    printf("Ticket cost:%.2f\n", total);
+
+    return 0;
+
+}
